@@ -2,7 +2,7 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  background: #04042c var(--background-image);
+  background: var(--background-color) var(--background-image);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -234,6 +234,7 @@
 @media (width >= 768px) {
   .aside-style .main__section-title {
     grid-column: 1;
+    margin-bottom: 0;
   }
 }
 
@@ -242,8 +243,19 @@
     width: 30vw;
   }
 }
-.main__section-card:not(:last-of-type) {
-  margin-bottom: 20px;
+
+@media (width >= 1024px) {
+  .bar-style .main__section-card:not(:first-of-type) {
+    margin-top: 0;
+  }
+}
+
+.main__section-card:not(:first-of-type) {
+  margin-top: 20px;
+}
+
+.aside-style-bar .main__section-card {
+  margin-top: 20px;
 }
 
 @media (width >= 768px) {
@@ -292,14 +304,13 @@
   outline-offset: 0.5px;
 }
 
-.main__section-subcard .main__section-subtitle {
+h4.main__section-subtitle {
   color: var(--block-header);
   font-family: IBM Plex Mono, monospace, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 23.4px; /* 130% */
-  margin-top: 20px;
 }
 
 .main__subtitle-gallery {
@@ -318,7 +329,6 @@
 
 @media (width >= 768px) {
   .gallery-style {
-    display: grid;
     gap: 20px;
   }
 }
@@ -330,7 +340,6 @@
 
 @media (width >= 768px) {
   .gallery {
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
   }
@@ -403,26 +412,4 @@
   .footer__text {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
-}
-
-.footer::after {
-  content: "";
-  width: 25.036px;
-  height: 25.002px;
-  border-bottom: 1px solid var(--section-title);
-  border-left: 1px solid var(--section-title);
-  position: absolute;
-  left: clamp(10px, 10px + 2.54vw - 9.54px, 20px);
-  bottom: clamp(10px, 10px + 2.54vw - 9.54px, 20px);
-}
-
-.footer::before {
-  content: "";
-  width: 25.036px;
-  height: 25.002px;
-  border-top: 1px solid var(--section-title);
-  border-right: 1px solid var(--section-title);
-  position: absolute;
-  right: clamp(10px, 10px + 2.54vw - 9.54px, 20px);
-  top: clamp(10px, 10px + 2.54vw - 9.54px, 20px);
 }
